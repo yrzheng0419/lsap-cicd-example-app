@@ -8,4 +8,10 @@ app.get("/", (req, res) => {
     .send("<h1>Welcome to the CI/CD Workshop!</h1>");
 });
 
+// Time API endpoint
+app.get('/time', (req, res) => {
+    const currentTime = new Date().toISOString();
+    res.json({ time: currentTime });
+});
+
 module.exports = app;

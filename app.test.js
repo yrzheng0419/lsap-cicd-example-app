@@ -27,3 +27,17 @@ describe("API Endpoints", () => {
     expect(res.text).toContain("Welcome to the CI/CD Workshop!");
   });
 });
+
+describe('GET /time', () => {
+    it('should return current time in ISO format', async () => {
+        const response = await request(app).get('/time');
+
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty('time');
+
+        // 驗證是否為有效的ISO格式日期
+        const timeString = response.body.time;
+        const date = new Date(timeString);
+        expect(date.toISOString()).toBe(timeString);
+    });
+});
