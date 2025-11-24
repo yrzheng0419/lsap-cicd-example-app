@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安裝dependencies（只安裝production需要的）
-RUN npm ci --only=production
+RUN npm install
 
 # 複製應用程式碼
 COPY . .
